@@ -1,9 +1,12 @@
 from decimal import Decimal
+from win32com import client as win32
+import os
+
 
 def NumChange(value):
     if not isinstance(value, (Decimal, str, int)):
         raise ValueError("Not a Decimal Number!")
-     # 汉字金额字符定义
+        # 汉字金额字符定义
     dunit = ('角', '分')
     num = ('零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖')
     iunit = ['元', '拾', '佰', '仟', '万', '拾', '佰', '仟', '亿', '拾', '佰', '仟', '万', '拾', '佰', '仟']
@@ -67,10 +70,29 @@ def NumChange(value):
                 if not haszero:  # 如果以前没有加过零
                     so.append(num[0])
                     haszero = True
-                # 最终结果
+                    # 最终结果
     so.reverse()
     return ''.join(so)
 
+
+def DocumentConverter(template, output, mark_dict, visible=False):
+    word = win32.gencache.EnsureDispatch("Word.Application")
+    if not os.path.isfile(template):
+        return False
+    if os.path.isfile(output):
+        os.remove(output)
+    document = word.Documents.Open(template)
+    word.Visible = visible
+    word.DisplayAlerts = False
+    for mark in mark_dict.keys():
+        word.Selection.HomeKey(Unit=6)
+        word.Selection.Find.Text = mark
+        word.Selection.Find.Replacement.Text = mark_dict[mark]
+        word.Selection.Find.MatchCase = True
+        word.Selection.Find.Execute(Replace=2, Forward=2)
+    document.SaveAs(output)
+    word.Quit()
+    return True
 
 
 if __name__ == '__main__':
@@ -78,3 +100,4 @@ if __name__ == '__main__':
     print(NumChange('0.01'))
     print(NumChange(100000000))
     print(NumChange('124'))
+    DocumentConverter("D:\\test.docx", "D:\\test2.docx", {"@mark1": 123, "@mark2": "ABC"}, True)

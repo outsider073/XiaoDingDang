@@ -100,4 +100,4 @@ if __name__ == '__main__':
     print(NumChange('0.01'))
     print(NumChange(100000000))
     print(NumChange('124'))
-    DocumentConverter("D:\\test.docx", "D:\\test2.docx", {"@mark1": 123, "@mark2": "ABC"}, True)
+    # DocumentConvertererter("D:\\test.docx", "D:\\test2.docx", {"@mark1": 123, "@mark2": "ABC"}, True)

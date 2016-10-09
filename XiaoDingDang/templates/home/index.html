@@ -1,7 +1,51 @@
 {% extends "layout.html" %}
 {% block title %}
-小叮当对公助理
+    小叮当对公助理
 {% endblock title %}
 {% block content %}
-<h1>小叮当对公助理</h1>
+    <div class="sui-row-fluid">
+        <div class="span8">
+            <table class="sui-table table-bordered-simple">
+                <thead>
+                <tr>
+                    <th>＃</th>
+                    <th>待付款</th>
+                    <th>宝宝数量</th>
+                    <th>交易金额</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr id="list-1" class="xiaodingdang-list">
+                    <td>所有交易</td>
+                    <td>9999.00</td>
+                    <td>999</td>
+                    <td>99999.00</td>
+                </tr>
+                <tr id="list-2" class="xiaodingdang-list">
+                    <td>待付款</td>
+                    <td>9999.00</td>
+                    <td>999</td>
+                    <td>99999.00</td>
+                </tr>
+                <tr id="list-3" class="xiaodingdang-list">
+                    <td>已发货</td>
+                    <td>9999.00</td>
+                    <td>999</td>
+                    <td>99999.00</td>
+                </tr>
+                <tr id="list-4" class="xiaodingdang-list">
+                    <td>已成功</td>
+                    <td>9999.00</td>
+                    <td>999</td>
+                    <td>99999.00</td>
+                </tr>
+                </tbody>
+            </table>
+            <p class="xiaodingdang-fenyeqi">
+            </p>
+        </div>
+        <div class="span4">
+
+        </div>
+    </div>
 {% endblock content %}

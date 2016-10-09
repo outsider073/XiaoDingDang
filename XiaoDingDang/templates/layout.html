@@ -2,20 +2,31 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock title%}</title>
+    <title>{% block title %}{% endblock title %}</title>
     <link rel="icon" type="image/png" href={{ url_for('static', filename='favicon.png') }}>
     <link rel="stylesheet" href={{ url_for('static', filename='sui.min.css') }}>
-    <script type="text/javascript" src={{ url_for('static', filename='sui.min.css') }}>
+    <script type="text/javascript" src={{ url_for('static', filename='jquery.min.js') }}>
     </script>
-    <script type="text/javascript" src={{ url_for('static', filename='sui.min.css') }}>
+    <script type="text/javascript" src={{ url_for('static', filename='sui.min.js') }}>
     </script>
 </head>
 <body>
-<div class="Header" >
+<div class="sui-navbar">
+    <div class="navbar-inner">
+        <a href="#" class="sui-brand">小叮当对公助理</a>
+        <ul class="sui-nav">
+            <li class="active">
+                <a href="#">首页</a>
+            </li>
+            <li>
+                <a href="#">关于</a>
+            </li>
+        </ul>
+    </div>
 </div>
-<div class="Content">
-{% block content %}
-{% endblock content %}
+<div class="sui-container">
+    {% block content %}
+    {% endblock content %}
 </div>
 <div class="Footer">
 

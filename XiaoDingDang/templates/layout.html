@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock title%}</title>
+    <link rel="icon" type="image/png" href={{ url_for('static', filename='favicon.png') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='sui.min.css') }}>
+    <script type="text/javascript" src={{ url_for('static', filename='sui.min.css') }}>
+    </script>
+    <script type="text/javascript" src={{ url_for('static', filename='sui.min.css') }}>
+    </script>
+</head>
+<body>
+<div class="Header" >
+</div>
+<div class="Content">
+{% block content %}
+{% endblock content %}
+</div>
+<div class="Footer">
+
+</div>
+</body>
+</html>
